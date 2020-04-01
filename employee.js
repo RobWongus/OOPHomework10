@@ -22,4 +22,5 @@ getRole() {
 
 }
 };
-module.export = Employee;
+
+module.exports = Employee;
