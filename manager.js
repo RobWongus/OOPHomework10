@@ -7,7 +7,7 @@ class Manager extends Employee {
     super(name, id, email, role);
     
     }
-    getRole()
+    getrole()
     
 };
 
