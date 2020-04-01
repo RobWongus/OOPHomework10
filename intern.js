@@ -1,21 +1,34 @@
 const Employee = require ("./Employee");
 
 class Intern extends Employee {
-    constructor (name, id, email, role, School) {
-    this.School = School;
+    constructor (name, id, email, role, school) {
+    
+    // super always comes before locally defined variables
+    // this.School = School;
+    // also "school" not "School"; school is not a class; it's a property of Intern    
 
     super(name, id, email, role);
 }
-getrole()
+	// getrole()
 
-getSchool()
+	getSchool() {
+            return this.school;
+        }
+
 };
 
-const Intern = new Intern();
+// fix this; see my comments in Manager & Intern
+// you are creating an empty Intern; can't do this
+// also, the class is called Intern, but the instance
+// of the class is called intern
+// const intern = new Intern();
 
-Intern.getrole();
+// fix getRole() in Emplyee class first
+// intern.getrole();
 
-Intern.getSchool();
+// this SHOULD work, but your intern isn't constructed properly
+// so this is going to fail
+// intern.getSchool();
 
 
 
