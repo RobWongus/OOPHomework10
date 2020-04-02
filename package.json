@@ -61,11 +61,12 @@
     "is-descriptor": "^0.1.6",
     "is-extendable": "^0.1.1",
     "is-generator-fn": "^2.1.0",
-    "is-number": "^7.0.0"
+    "is-number": "^7.0.0",
+    "jest": "^25.2.6"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose test/*"
   },
   "repository": {
     "type": "git",
