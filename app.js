@@ -1,6 +1,6 @@
-const Manager = require("./Manager");
-const Engineer = require("./Engineer");
-const Intern = require("./Intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
@@ -15,10 +15,23 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // 3. all of your js files except for app.js, should be in the lib directory.
 // 4. this means that you'll have to fix the imports above, too.
 // So: const Manager = require("./lib/Manager"), for example.
-const render = require("./lib/htmlRenderer");
+
+//const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+const nadine = new Intern ("Synclaire", "33", "Synclaire@yahoo.com", "intern", "Coppin University");
+// console.log(nadine.school)
+// console.log(nadine.school)
+// console.log(nadine.getschool())
+
+
+const engineer = new Engineer("Maxine", "91", "MaxPower@yahoo.com", "engineer", "MaxRepo", "MaxineShaw");
+//console.log(engineer);
+
+const manager = new Manager("khadijah","23",'Khadijah@yahoo.com',"manager","x1212");
+//console.log(manager);
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
