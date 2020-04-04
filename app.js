@@ -23,21 +23,30 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-const nadine = new Intern ("Synclaire", "33", "Synclaire@yahoo.com", "intern", "Coppin University");
+const manager = new Manager("khadijah","88",'Khadijah@yahoo.com', "x1212","manager");
+//console.log(manager);
+
+const engineer = new Engineer("Maxine", "91", "MaxPower@yahoo.com", "MaxineShaw", "engineer");
+//console.log(engineer);
+
+const intern = new Intern ("Synclaire", "10", "Synclaire@yahoo.com", "intern", "Coppin University");
 // console.log(nadine.school)
 // console.log(nadine.school)
 // console.log(nadine.getschool())
 
 
-const engineer = new Engineer("Maxine", "91", "MaxPower@yahoo.com", "engineer", "MaxRepo", "MaxineShaw");
-//console.log(engineer);
 
-const manager = new Manager("khadijah","23",'Khadijah@yahoo.com',"manager","x1212");
+const manager = new Manager("khadijah","88",'Khadijah@yahoo.com', "x1212","manager");
 //console.log(manager);
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+render([manager, engineer, intern])
+
+
+
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
