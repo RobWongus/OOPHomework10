@@ -18,26 +18,57 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // So: const Manager = require("./lib/Manager"), for example.
 //DONE!
 
-//const render = require("./lib/htmlRenderer");
+//const render = require("./lib/htmlRenderer"); DONE![i]
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
-const manager = new Manager("khadijah","88",'Khadijah@yahoo.com', "x1212","manager");
+//const manager = new Manager("Khadijah","88",'Khadijah@yahoo.com', "x1212","manager");
 //console.log(manager);
 
-const engineer = new Engineer("Maxine", "91", "MaxPower@yahoo.com", "MaxineShaw", "engineer");
+//const engineer = new Engineer("Maxine", "91", "MaxPower@yahoo.com", "MaxineShaw", "engineer");
 //console.log(engineer);
 
-const intern = new Intern ("Synclaire", "10", "Synclaire@yahoo.com", "intern", "Coppin University");
+//const intern = new Intern ("Synclaire", "10", "Synclaire@yahoo.com", "Coppin University", "intern");
+
+
+inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "name ",
+            message: "What is your name?"
+        },
+        
+        {
+            type: "input",
+            name: "id",
+            message: "What is your id number?"
+            
+        },
+
+        {
+            type: "input",
+            name: "email",
+            message: "WHat is youe email address?"
+
+        },
+        
+        {
+            type: "list",
+            name: "contact",
+            message: "What is your role?",
+            choices: [
+              "Manager",
+              "Engineer",
+              "Intern"
+            ]
+          }
 // console.log(nadine.school)
 // console.log(nadine.school)
 // console.log(nadine.getschool())
 
 
-
-const manager = new Manager("khadijah","88",'Khadijah@yahoo.com', "x1212","manager");
-//console.log(manager);
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
@@ -45,7 +76,14 @@ const manager = new Manager("khadijah","88",'Khadijah@yahoo.com', "x1212","manag
 
 render([manager, engineer, intern])
 
-
+fs.appendFile("././team.html", process.argv[2] + '\n', function(error) {
+    if (error) {
+        console.log(error);
+    }
+    else {
+        console.log("You fucked up!");
+    }
+});
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML
