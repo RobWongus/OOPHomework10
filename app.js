@@ -18,8 +18,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // So: const Manager = require("./lib/Manager"), for example.
 //DONE!
 
-//const render = require("./lib/htmlRenderer"); DONE![i]
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -30,7 +28,9 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 //console.log(engineer);
 
 //const intern = new Intern ("Synclaire", "10", "Synclaire@yahoo.com", "Coppin University", "intern");
-
+// console.log(nadine.school)
+// console.log(nadine.school)
+// console.log(nadine.getschool())
 
 inquirer
     .prompt([
@@ -64,10 +64,18 @@ inquirer
               "Intern"
             ]
           }
-// console.log(nadine.school)
-// console.log(nadine.school)
-// console.log(nadine.getschool())
+// .then(function(data) {
 
+// }
+// .then function writeToHtml(){
+//     fs.writeFileSync(outputPath, render(employees), "utf-8"),
+//     function (err){
+//         if (err){
+//             throw err
+//         }
+//     };
+//     console.log("Operation complete.  Your team is ready to be viewed!");
+// }
 
 
 // After the user has input all employees desired, call the `render` function (required
