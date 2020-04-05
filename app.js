@@ -107,25 +107,27 @@ const internQuestions = [
     {
         type: "input",
         name: "email",
-        message: "What is youe email address?"
+        message: "What is your email address?"
 
     },
     
     {
         type: "list",
         name: "office number contact",
-        message: "What is your office extnsion?"
+        message: "What is your office extension?"
     }
 ];
 
-const job = {
+const employeeType = {
     type: "list",
     choices: [
         "Manager", 
         "Engineer",
         "Intern",
-        "Hiring Freeze"
+        "Sorry, Hiring Freeze"
     ],
+    message: "What team member would you like add.",
+    name: "employeeChoice"
     
 }
 
@@ -181,3 +183,51 @@ const job = {
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work!```
 
+function employeeAdd() {
+    inquirer
+      .prompt(managerQuestions)
+      .then(function(answers) {
+          const manager = new Manager(answers.name, answers.id, answers.email, answers.office);
+          employees.push(manager);
+          console.log(manager);
+          generateTeam();
+      
+      
+  function generateTeam() {
+      inquirer.prompt(employeeType).then(function(answers) {
+           if(answers.employeeChoice === "Engineer") {
+              inquirer.prompt(engineerQuestions).then(function(answers){
+              const engineer = new Engineer(answers.engineerName, answers.engineerID, answers.engineerEmail, answers.engineerGithub);
+              employees.push(engineer);
+              console.log(engineer);
+              generateTeam();
+              });
+                      
+              } else if (answers.employeeChoice === "Intern"){
+              inquirer.prompt(internQuestions).then(function(answers){
+              const intern = new Intern(answers.internName, answers.internID, answers.internEmail, answers.internSchool);
+              employees.push(intern);
+              console.log(intern);
+              generateTeam();
+              });
+  
+                      
+      } else {
+               writeToHtml();
+                   };
+              });
+          };
+      });
+  };
+      
+      employeeAdd();
+      
+      function writeToHtml(){
+          fs.writeFileSync(outputPath, render(employees), "utf-8"),
+          function (err){
+              if (err){
+                  throw err
+              }
+          };
+          console.log("Maybe you did it.");
+      }
