@@ -4,11 +4,9 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
-const render = require("./lib/htmlRenderer");
-const employees= [];
-
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
+const render = require("./lib/htmlRenderer");
 
 // here you are telling the app to open up htmlRenderer.js from
 // within the ./lib directory.
@@ -32,6 +30,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // console.log(nadine.school)
 // console.log(nadine.school)
 // console.log(nadine.getschool())
+
+const employees= [];
 
 const managerQuestions = [
         {
@@ -118,6 +118,19 @@ const internQuestions = [
     }
 ];
 
+const job = {
+    type: "list",
+    choices: [
+        "Manager", 
+        "Engineer",
+        "Intern",
+        "Hiring Freeze"
+    ],
+    
+}
+
+
+
 // .then function writeToHtml(){
 //     fs.writeFileSync(outputPath, render(employees), "utf-8"),
 //     function (err){
@@ -134,9 +147,9 @@ const internQuestions = [
 // generate and return a block of HTML including templated divs for each employee!
 
 
-.then(function(data) {
+//.then(function(data) {
 
-}
+//}
 
 
 
@@ -167,3 +180,4 @@ const internQuestions = [
 // for further information. Be sure to test out each class and verify it generates an 
 // object with the correct structure and methods. This structure will be crucial in order
 // for the provided `render` function to work!```
+
