@@ -97,14 +97,14 @@ const internQuestions = [
 ];
 
 const employeeType = {
-    type: "input",
+    type: "list",
     choices: [
         "Manager", 
         "Engineer",
         "Intern",
         "none"
     ],
-    message: "What team member would you like to add?",
+    message: "Thanks for building your team?",
     name: "employeeChoice"
     
 }
@@ -131,7 +131,7 @@ function employeeAdd() {
       
   function generateTeam() {
       inquirer.prompt(employeeType).then(function(answers) {
-           if(answers.employeeChoice === "Engineer", "engineer") {
+           if(answers.employeeChoice === "Engineer") {
               inquirer.prompt(engineerQuestions).then(function(answers){
               const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
               employees.push(engineer);
@@ -139,7 +139,7 @@ function employeeAdd() {
               generateTeam();
               });
                       
-              } else if (answers.employeeChoice === "Intern", "intern"){
+              } else if (answers.employeeChoice === "Intern"){
               inquirer.prompt(internQuestions).then(function(answers){
               const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
               employees.push(intern);
@@ -165,5 +165,5 @@ function employeeAdd() {
                   throw err
               }
           };
-          console.log("Maybe you did it.");
+          console.log("Possibly compltet. Maybe you did it.");
       }
