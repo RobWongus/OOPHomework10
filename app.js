@@ -104,7 +104,7 @@ const employeeType = {
         "Intern",
         "none"
     ],
-    message: "Thanks for building your team?",
+    message: "Would you like to keep building?",
     name: "employeeChoice"
     
 }
@@ -165,5 +165,5 @@ function employeeAdd() {
                   throw err
               }
           };
-          console.log("Possibly compltet. Maybe you did it.");
+          console.log("Possibly complete. Maybe you did it.");
       }
