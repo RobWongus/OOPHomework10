@@ -92,7 +92,7 @@ const internQuestions = [
     {
         type: "input",
         name: "school",
-        message: "What school do you attend"
+        message: "What school do you attend?"
     }
 ];
 
@@ -102,7 +102,7 @@ const employeeType = {
         "Manager", 
         "Engineer",
         "Intern",
-        "Sorry, Hiring Freeze"
+        "none"
     ],
     message: "What team member would you like add.",
     name: "employeeChoice"
@@ -131,7 +131,7 @@ function employeeAdd() {
       
   function generateTeam() {
       inquirer.prompt(employeeType).then(function(answers) {
-           if(answers.employeeChoice === "Engineer") {
+           if(answers.employeeChoice === "Engineer", "engineer") {
               inquirer.prompt(engineerQuestions).then(function(answers){
               const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
               employees.push(engineer);
@@ -139,7 +139,7 @@ function employeeAdd() {
               generateTeam();
               });
                       
-              } else if (answers.employeeChoice === "Intern"){
+              } else if (answers.employeeChoice === "Intern", "intern"){
               inquirer.prompt(internQuestions).then(function(answers){
               const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
               employees.push(intern);
