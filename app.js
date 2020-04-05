@@ -5,6 +5,7 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 const render = require("./lib/htmlRenderer");
+const employees= [];
 
 const OUTPUT_DIR = path.resolve(__dirname, "output")
 const outputPath = path.join(OUTPUT_DIR, "team.html");
@@ -32,17 +33,16 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 // console.log(nadine.school)
 // console.log(nadine.getschool())
 
-inquirer
-    .prompt([
+const managerQuestions = [
         {
             type: "input",
-            name: "name ",
+            name: "manager name ",
             message: "What is your name?"
         },
         
         {
             type: "input",
-            name: "id",
+            name: "manager id",
             message: "What is your id number?"
             
         },
@@ -50,23 +50,74 @@ inquirer
         {
             type: "input",
             name: "email",
-            message: "WHat is youe email address?"
+            message: "What is youe email address?"
 
         },
         
         {
             type: "list",
-            name: "contact",
-            message: "What is your role?",
-            choices: [
-              "Manager",
-              "Engineer",
-              "Intern"
-            ]
-          }
-// .then(function(data) {
+            name: "office number contact",
+            message: "What is your office extnsion?"
+        }
 
-// }
+];
+
+const engineerQuestions = [
+    {
+        type: "input",
+        name: "engineer name ",
+        message: "What is your name?"
+    },
+    
+    {
+        type: "input",
+        name: "engineer id",
+        message: "What is your id number?"
+        
+    },
+
+    {
+        type: "input",
+        name: "email",
+        message: "What is youe email address?"
+
+    },
+    
+    {
+        type: "list",
+        name: "github",
+        message: "What is your github?"
+    }
+];
+
+const internQuestions = [
+    {
+        type: "input",
+        name: "intern  name ",
+        message: "What is your name?"
+    },
+    
+    {
+        type: "input",
+        name: "intern id",
+        message: "What is your id number?"
+        
+    },
+
+    {
+        type: "input",
+        name: "email",
+        message: "What is youe email address?"
+
+    },
+    
+    {
+        type: "list",
+        name: "office number contact",
+        message: "What is your office extnsion?"
+    }
+];
+
 // .then function writeToHtml(){
 //     fs.writeFileSync(outputPath, render(employees), "utf-8"),
 //     function (err){
@@ -82,16 +133,23 @@ inquirer
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-render([manager, engineer, intern])
 
-fs.appendFile("././team.html", process.argv[2] + '\n', function(error) {
-    if (error) {
-        console.log(error);
-    }
-    else {
-        console.log("You fucked up!");
-    }
-});
+.then(function(data) {
+
+}
+
+
+
+// render([manager, engineer, intern])
+
+// fs.appendFile("././team.html", process.argv[2] + '\n', function(error) {
+//     if (error) {
+//         console.log(error);
+//     }
+//     else {
+//         console.log("You fucked up!");
+//     }
+// });
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML
