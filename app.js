@@ -104,7 +104,7 @@ const employeeType = {
         "Intern",
         "none"
     ],
-    message: "What team member would you like add.",
+    message: "What team member would you like to add?",
     name: "employeeChoice"
     
 }
